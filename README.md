@@ -62,9 +62,9 @@ Turn on your Raspberry Pi and execute the following commands
 ### Auto Installer
 To install and Run RPi Client Automatically just run the following command on your Raspberry Pi terminal
 
-- ```curl -sSL  https://raw.githubusercontent.com/Nauman3S/IOTManagementSystem/main/installer.sh  | bash```
+- ```curl -sSL  https://raw.githubusercontent.com/Nauman3S/AutomaticCentrifuge/main/installer.sh  | bash```
 
-After the installer completes the process, note down the MAC Address on the terminal with success message.
+After the installer completes the process. You will see success message after installation completion.
 
 ### Configuring Camera
 

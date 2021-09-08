@@ -3,7 +3,7 @@
 # instead of continuing the installation with something broken
 set -e
 
-echo "AutoCentrifuge Client Installer"
+echo "AutomaticCentrifuge Client Installer"
 
 ######## VARIABLES #########
 
@@ -25,39 +25,32 @@ Automatic Centrifuge Installer
 show_ascii_berry
 
 
-if [ -d "$HOME/AutoCentrifuge" ]
+if [ -d "$HOME/AutomaticCentrifuge" ]
 then
-    echo "Directory AutoCentrifuge exists."
+    echo "Directory AutomaticCentrifuge exists."
 else
-    echo "Error: Directory AutoCentrifuge does not exists."
+    echo "Error: Directory AutomaticCentrifuge does not exists."
     cd $HOME
     git clone \
-    --depth 1  \
-    --filter=blob:none  \
-    --sparse \
-    https://github.com/Nauman3S/IOTManagementSystem;
-    cd IOTManagementSystem
-    git sparse-checkout set RPiClient
-    mv RPiClient ../
-    cd ..
-    rm -rf IOTManagementSystem
+    https://github.com/Nauman3S/AutomaticCentrifuge;
+    cd AutomaticCentrifuge
     
 fi
-if [ -d "$HOME/AutoCentrifuge/logs" ]
+if [ -d "$HOME/AutomaticCentrifuge/logs" ]
 then
-    echo "Directory AutoCentrifuge/logs exists."
+    echo "Directory AutomaticCentrifuge/logs exists."
 else
-    echo "Error: Directory AutoCentrifuge does not exists."
-    mkdir ~/AutoCentrifuge/logs
+    echo "Error: Directory AutomaticCentrifuge does not exists."
+    mkdir ~/AutomaticCentrifuge/logs
 fi
 
 File="/etc/rc.local"
 
-if [[ $(grep "(sleep 10; sh /home/pi/AutoCentrifuge/starter.sh)&" $File) ]] ; then
+if [[ $(grep "(sleep 10; sh /home/pi/AutomaticCentrifuge/starter.sh)&" $File) ]] ; then
     echo "Found startup script. Doing nothing."
 else
     echo "Not Found. Adding startup script"
-    sed -i -e '$i \(sleep 10; sh /home/pi/AutoCentrifuge/starter.sh)&\n' /etc/rc.local
+    sed -i -e '$i \(sleep 10; sh /home/pi/AutomaticCentrifuge/starter.sh)&\n' /etc/rc.local
 fi
 
 echo "Installtion Completed, conifgure the camera and restart your raspberry pi."
