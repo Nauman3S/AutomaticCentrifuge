@@ -66,8 +66,18 @@ To install and Run RPi Client Automatically just run the following command on yo
 
 After the installer completes the process, note down the MAC Address on the terminal with success message.
 
+### Configuring Camera
 
+1.  Start your Raspberry Pi
+2.  Go to the main menu and open the Raspberry Pi Configuration tool.
 
+![PC1](Circuit/pc1.png)
+
+3.  Go to the main menu and open the Raspberry Pi Configuration tool.
+   
+![PC2](Circuit/pc2.png)
+
+4.  Reboot your Raspberry Pi.
 
 
 ## Circuit <a name = "circuit"></a>
@@ -92,10 +102,10 @@ Motor Driver Pins for connecting motors
 ```
 
 | MotorDriverPin | Description | 
-| :--- | :--- | :--- |
+| :--- | :--- |
 | `M1A` | *Connect to motor1 terminal A*  |
 | `M1B` | *Connect to motor1 terminal B*  |
-| `VM` |  *Positive Supply (6V to 24V)*  |
+| `VM`  |  *Positive Supply (6V to 24V)*  |
 | `GND` | *Negative Supply*  |
 | `M2A` | *Connect to motor2 terminal A*  |
 | `M2B` | *Connect to motor2 terminal B*  |
