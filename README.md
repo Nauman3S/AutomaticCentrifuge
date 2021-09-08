@@ -34,12 +34,12 @@
 
 This repo contains
 
-- Backend
-- RPiClient Software
+- Firmware
+- Circuit Diagram
 - Client auto-Installer script
 - Detailed instructions
 
-for IoTManagement System.
+for Automatic Centrifuge project.
 
 
 
@@ -145,9 +145,7 @@ Here's the complete circuit diagram of the system.
 ## Usage <a name = "usage"></a>
 
 1.  Run installer script on your Raspberry Pi.
-2.  Note down the MAC Address given by the installer script at the end.
-3.  Add the device with the MAC Address collected in the previous step to the database using addDevice API endpoint mentioned above
-4.  Interact with the device with using MAC Address, or interact with all the devices in the system by using `all` in devices parameter of the API.
+2.  Setup the camera as mentioned in the ``Configuring Camera`` section.
 
 
 ## List of Components <a name = "list"></a>
@@ -165,12 +163,6 @@ Following components are used to make this project
 
 - [Python](https://www.python.org/) - For programming RPi Client
   
-<!-- ## Demo Videos <a name = "demo"></a>
-
-- Complete Demo Part 1: https://youtu.be/d15zIwMxJ3w
-- - This is a part 1 of complete demo of IoT Management System, showing how to install the Client on Raspberry Pi and run it.
-- Complete Demo Part 2: https://youtu.be/kUgdPix0l-g
-- - Part 2 of complete demo showing how to interact with all the devices or specific devices in the system using API. -->
 
 ## ✍️ Authors <a name = "authors"></a>
 

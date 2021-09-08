@@ -3,7 +3,7 @@
 # instead of continuing the installation with something broken
 set -e
 
-echo "IOT Management System Client Installer"
+echo "AutoCentrifuge Client Installer"
 
 ######## VARIABLES #########
 
@@ -18,30 +18,19 @@ show_ascii_berry() {
     echo -e "
 
 _________________________   _______    _______         _______
-\__   __(  ___  \__   __/  (       )  (  ____ |\     /(  ____ \
-   ) (  | (   ) |  ) (     | () () |  | (    \( \   / | (    \/
-   | |  | |   | |  | |     | || || |  | (_____ \ (_) /| (_____
-   | |  | |   | |  | |     | |(_)| |  (_____  ) \   / (_____  )
-   | |  | |   | |  | |     | |   | |        ) |  ) (        ) |
-___) (__| (___) |  | |     | )   ( |  /\____) |  | |  /\____) |
-\_______(_______)  )_(     |/     \|  \_______)  \_/  \_______)
-
+Automatic Centrifuge Installer
 
     "
 }
 show_ascii_berry
 
-sudo pip3 install setuptools;
-sudo pip3 install vcgencmd;
-sudo pip3 install paho-mqtt;
-sudo apt install neofetch;
-if [ -d "$HOME/RPiClient" ]
+
+if [ -d "$HOME/AutoCentrifuge" ]
 then
-    echo "Directory RPiClient exists."
+    echo "Directory AutoCentrifuge exists."
 else
-    echo "Error: Directory RPiClient does not exists."
+    echo "Error: Directory AutoCentrifuge does not exists."
     cd $HOME
-    # mkdir ~/RPiClient
     git clone \
     --depth 1  \
     --filter=blob:none  \
@@ -54,24 +43,21 @@ else
     rm -rf IOTManagementSystem
     
 fi
-if [ -d "$HOME/RPiClient/logs" ]
+if [ -d "$HOME/AutoCentrifuge/logs" ]
 then
-    echo "Directory RPiClient/logs exists."
+    echo "Directory AutoCentrifuge/logs exists."
 else
-    echo "Error: Directory RPiClient does not exists."
-    mkdir ~/RPiClient/logs
+    echo "Error: Directory AutoCentrifuge does not exists."
+    mkdir ~/AutoCentrifuge/logs
 fi
 
 File="/etc/rc.local"
 
-if [[ $(grep "(sleep 10; sh /home/pi/RPiClient/starter.sh)&" $File) ]] ; then
+if [[ $(grep "(sleep 10; sh /home/pi/AutoCentrifuge/starter.sh)&" $File) ]] ; then
     echo "Found startup script. Doing nothing."
 else
     echo "Not Found. Adding startup script"
-    sed -i -e '$i \(sleep 10; sh /home/pi/RPiClient/starter.sh)&\n' /etc/rc.local
+    sed -i -e '$i \(sleep 10; sh /home/pi/AutoCentrifuge/starter.sh)&\n' /etc/rc.local
 fi
 
-MAC=`ip link show wlan0 | grep link/ether | awk '{print $2}' | sed 's/://g'`
-
-
-echo "Installtion Completed. Add a new device to IOTMSys with Mac Address $MAC and restart your Raspberry Pi"
+echo "Installtion Completed, conifgure the camera and restart your raspberry pi."
