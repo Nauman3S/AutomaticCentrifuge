@@ -1,7 +1,7 @@
 #-e option instructs bash to immediately exit if any command [1] has a non-zero exit status
 # We do not want users to end up with a partially working install, so we exit the script
 # instead of continuing the installation with something broken
-set -e
+#set -e
 
 echo "AutomaticCentrifuge Client Installer"
 
@@ -34,6 +34,8 @@ else
     git clone \
     https://github.com/Nauman3S/AutomaticCentrifuge;
     cd AutomaticCentrifuge/Firmware
+    sudo chmod a+rx starter.sh
+    sudo chmod a+rx upgradeOS.sh
     
 fi
 if [ -d "$HOME/AutomaticCentrifuge/Firmware/logs" ]
@@ -51,6 +53,7 @@ if [[ $(grep "(sleep 10; sh /home/pi/AutomaticCentrifuge/Firmware/starter.sh)&" 
 else
     echo "Not Found. Adding startup script"
     sudo sed -i -e '$i \(sleep 10; sh /home/pi/AutomaticCentrifuge/Firmware/starter.sh)&\n' /etc/rc.local
+    
 fi
 
 echo "Installtion Completed, conifgure the camera and restart your raspberry pi."

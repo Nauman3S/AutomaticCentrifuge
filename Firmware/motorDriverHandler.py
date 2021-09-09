@@ -98,6 +98,7 @@ GPIO.setup(AN2, GPIO.OUT)		# set pin as output
 GPIO.setup(AN1, GPIO.OUT)		# set pin as output
 GPIO.setup(DIG2, GPIO.OUT)		# set pin as output
 GPIO.setup(DIG1, GPIO.OUT)		# set pin as output
+GPIO.setup(servoPIN, GPIO.OUT)		# set pin as output
 GPIO.setup(START_BUTTON_GPIO, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.add_event_detect(START_BUTTON_GPIO, GPIO.BOTH, callback=startTheMotor, bouncetime=100)
 GPIO.setup(STOP_BUTTON_GPIO, GPIO.IN, pull_up_down=GPIO.PUD_UP)
