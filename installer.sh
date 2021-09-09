@@ -48,11 +48,11 @@ fi
 
 File="/etc/rc.local"
 
-if [[ $(grep "(sleep 10; sh /home/pi/AutomaticCentrifuge/Firmware/starter.sh)&" $File) ]] ; then
+if [[ $(grep "(sleep 14; sh /home/pi/AutomaticCentrifuge/Firmware/starter.sh)&" $File) ]] ; then
     echo "Found startup script. Doing nothing."
 else
     echo "Not Found. Adding startup script"
-    sudo sed -i -e '$i \(sleep 10; sh /home/pi/AutomaticCentrifuge/Firmware/starter.sh)&\n' /etc/rc.local
+    sudo sed -i -e '$i \(sleep 14; sh /home/pi/AutomaticCentrifuge/Firmware/starter.sh)&\n' /etc/rc.local
     
 fi
 
