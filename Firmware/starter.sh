@@ -6,4 +6,4 @@ sleep 5
 #     sleep 1
 # done
 
-(/usr/bin/python3 /home/pi/RPiClient/main.py >/home/pi/AutomaticCentrifuge/logs/main_logs.txt 2>&1)
+(/usr/bin/python3 /home/pi/AutomaticCentrifuge/Firmware/main.py >/home/pi/AutomaticCentrifuge/Firmware/logs/main_logs.txt 2>&1)
