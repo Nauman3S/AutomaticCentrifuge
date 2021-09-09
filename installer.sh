@@ -50,7 +50,7 @@ if [[ $(grep "(sleep 10; sh /home/pi/AutomaticCentrifuge/Firmware/starter.sh)&" 
     echo "Found startup script. Doing nothing."
 else
     echo "Not Found. Adding startup script"
-    sed -i -e '$i \(sleep 10; sh /home/pi/AutomaticCentrifuge/Firmware/starter.sh)&\n' /etc/rc.local
+    sudo sed -i -e '$i \(sleep 10; sh /home/pi/AutomaticCentrifuge/Firmware/starter.sh)&\n' /etc/rc.local
 fi
 
 echo "Installtion Completed, conifgure the camera and restart your raspberry pi."
