@@ -35,7 +35,8 @@ else
     https://github.com/Nauman3S/AutomaticCentrifuge;
     cd AutomaticCentrifuge/Firmware
     sudo chmod a+rx starter.sh
-    sudo chmod a+rx upgradeOS.sh
+    sudo chmod a+rx cameraLive.sh
+    sudo chmod a+rx stopCamera.sh
     
 fi
 if [ -d "$HOME/AutomaticCentrifuge/Firmware/logs" ]
