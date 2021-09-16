@@ -1,14 +1,8 @@
-from picamera import PiCamera
-from time import sleep
-
-camera = PiCamera()
-
-camera.rotation = 180
+import os
+import subprocess
 def startCamera():
-    global camera
-    camera.start_preview()
-    
+    subprocess.call(["sh", "/home/pi/AutomaticCentrifuge/Firmware/cameraLive.sh"], stdout=open(os.devnull, "w"), stderr=subprocess.STDOUT)
 
 def stopCamera():
-    global camera
-    camera.stop_preview()
+    subprocess.call(["sh", "/home/pi/AutomaticCentrifuge/Firmware/stopCamera.sh.sh"], stdout=open(os.devnull, "w"), stderr=subprocess.STDOUT)
+
