@@ -26,4 +26,4 @@ xset s noblank
 
 sleep 10
 
-(chromium-browser --no-sandbox http://0.0.0.0:8099 >/home/pi/AutomaticCentrifuge/Firmware/logs/browserLogs.txt 2>&1)&
+(DISPLAY=:0 sudo -u $USER chromium-browser --no-sandbox http://0.0.0.0:8099 >/home/pi/AutomaticCentrifuge/Firmware/logs/browserLogs.txt 2>&1)&

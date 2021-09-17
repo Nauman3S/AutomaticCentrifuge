@@ -17,9 +17,20 @@ STOP_BUTTON_GPIO = 17
 IR_SENSOR_GPIO = 22
 servoPIN = 4
 
-p1=None
-p2=None
-p=None
+# p1=None
+# p2=None
+#p=None
+GPIO.setup(AN2, GPIO.OUT)		# set pin as output
+GPIO.setup(AN1, GPIO.OUT)		# set pin as output
+GPIO.setup(DIG2, GPIO.OUT)		# set pin as output
+GPIO.setup(DIG1, GPIO.OUT)		# set pin as output
+GPIO.setup(servoPIN, GPIO.OUT)		# set pin as output
+GPIO.setup(START_BUTTON_GPIO, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(STOP_BUTTON_GPIO, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(IR_SENSOR_GPIO, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+p1 = GPIO.PWM(DIG1, 100)		# set pwm for M1
+p2 = GPIO.PWM(DIG2, 100)		# set pwm for M2
+p = GPIO.PWM(servoPIN, 50) # GPIO 4 for PWM with 50Hz
 dcMotorRunning=0
 
 def SetServoAngle(angle):
@@ -73,9 +84,11 @@ def startTheMotor(channel):
     global dcMotorRunning
     ledState('green')
     startMotors()
+    print('start motor button')
     dcMotorRunning=1
 def stopTheMotors(channel):
     global dcMotorRunning
+    print('stop motor button')
     stopMotors()
     dcMotorRunning=0
 
@@ -83,23 +96,27 @@ def isMotorRunning():
     global dcMotorRunning
     return dcMotorRunning
 
-GPIO.setup(AN2, GPIO.OUT)		# set pin as output
-GPIO.setup(AN1, GPIO.OUT)		# set pin as output
-GPIO.setup(DIG2, GPIO.OUT)		# set pin as output
-GPIO.setup(DIG1, GPIO.OUT)		# set pin as output
-GPIO.setup(servoPIN, GPIO.OUT)		# set pin as output
-GPIO.setup(START_BUTTON_GPIO, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.add_event_detect(START_BUTTON_GPIO, GPIO.BOTH, callback=startTheMotor, bouncetime=100)
-GPIO.setup(STOP_BUTTON_GPIO, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.add_event_detect(STOP_BUTTON_GPIO, GPIO.BOTH, callback=stopTheMotors, bouncetime=100)
-GPIO.setup(IR_SENSOR_GPIO, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.add_event_detect(IR_SENSOR_GPIO, GPIO.BOTH, callback=startTheMotor, bouncetime=100)
-p = GPIO.PWM(servoPIN, 50) # GPIO 4 for PWM with 50Hz
-p.start(0) # Initialization
+# GPIO.setup(AN2, GPIO.OUT)		# set pin as output
+# GPIO.setup(AN1, GPIO.OUT)		# set pin as output
+# GPIO.setup(DIG2, GPIO.OUT)		# set pin as output
+# GPIO.setup(DIG1, GPIO.OUT)		# set pin as output
+# GPIO.setup(servoPIN, GPIO.OUT)		# set pin as output
+# GPIO.setup(START_BUTTON_GPIO, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+# GPIO.setup(STOP_BUTTON_GPIO, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+# GPIO.setup(IR_SENSOR_GPIO, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.add_event_detect(START_BUTTON_GPIO, GPIO.BOTH, callback=startTheMotor, bouncetime=300)
+
+GPIO.add_event_detect(STOP_BUTTON_GPIO, GPIO.RISING, callback=stopTheMotors, bouncetime=300)
+
+GPIO.add_event_detect(IR_SENSOR_GPIO, GPIO.BOTH, callback=startTheMotor, bouncetime=300)
+# p = GPIO.PWM(servoPIN, 50) # GPIO 4 for PWM with 50Hz
+#p.start(0) # Initialization
 sleep(1)				# delay for 1 seconds
-p1 = GPIO.PWM(DIG1, 100)		# set pwm for M1
-p2 = GPIO.PWM(DIG2, 100)		# set pwm for M2
+#p1 = GPIO.PWM(DIG1, 100)		# set pwm for M1
+#p2 = GPIO.PWM(DIG2, 100)		# set pwm for M2
 
 
 # p.stop()
+# while 1:
+#     a=0
 # GPIO.cleanup()
