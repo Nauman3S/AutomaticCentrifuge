@@ -43,13 +43,25 @@ def startMotors():
     GPIO.output(AN2, GPIO.HIGH)		# set AN2 as HIGH, M2B will turn ON
     p1.start(0)				# set Direction for M1
     p2.start(0)				# set Direction for M2  
+    for i in range(0, 100, 20):
+        p1.ChangeDutyCycle(i)
+        p2.ChangeDutyCycle(i)
+        time.sleep(1)
     
 def stopMotors():
     global p1,p2
     GPIO.output(AN1, GPIO.LOW)           # set AN1 as LOW, M1B will STOP
     GPIO.output(AN2, GPIO.LOW)           # set AN2 as HIGH, M2B will STOP
+    
     p1.start(0)                          # Direction can ignore
     p2.start(0)    
+    for i in range(100, 0, -20):
+        p1.ChangeDutyCycle(i)
+        p2.ChangeDutyCycle(i)
+        time.sleep(1)
+    p1.ChangeDutyCycle(0)
+    p2.ChangeDutyCycle(0)
+    
 def backwardMotors():
     global p1,p2
     GPIO.output(AN1, GPIO.HIGH)       

@@ -26,4 +26,4 @@ xset s noblank
 
 sleep 10
 
-(DISPLAY=:0 chromium-browser --no-sandbox http://0.0.0.0:8099 >/home/pi/AutomaticCentrifuge/Firmware/logs/browserLogs.txt 2>&1)&
+(chromium-browser --no-sandbox http://0.0.0.0:8099 >/home/pi/AutomaticCentrifuge/Firmware/logs/browserLogs.txt 2>&1)&
