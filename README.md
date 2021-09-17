@@ -132,9 +132,9 @@ Other components pin connection details
 | `STOP BUTTON` | `GPIO17` | *To stop the rotation*  |
 | `IR Sensor` | `GPIO22` | *To start centrifuge without physically touching anything*  |
 | `Servo` | `GPIO4` | *If it won't work, power it from an external 5v power source*  |
-| `LED R` | `GPIO19` | *RGB LED*  |
-| `LED G` | `GPIO6` | *RGB LED*  |
-| `LED B` | `GPIO5` | *RGB LED*  |
+| `LED STRIP D0` | `GPIO16` | *RGB LED STRIP*  |
+| `LED STRIP GND` | `GND` | *RGB LED STRIP*  |
+| `LED STRIP 5V` | `5V Supply` | *RGB LED STRIP*  |
 
 ### Complete Circuit Diagram
 
