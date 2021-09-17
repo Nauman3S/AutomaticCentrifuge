@@ -1,3 +1,4 @@
+from ledStripHandler import *
 from motorDriverHandler import *
 from camHandler import *
 import time
@@ -26,11 +27,11 @@ while 1:
                     if(servoAngle>1):
                         ledState('blue')#or purple
                         servoAngle=servoAngle-1
-                        servoAngle(servoAngle)#gradually coming to angle 0 degrees
+                        SetServoAngle(servoAngle)#gradually coming to angle 0 degrees
                     else:
                         tm=0
                         stopMotors()#stop everything
-                        servoAngle(0)
+                        SetServoAngle(0)
                         ledState('white')
     except Exception as e:
         print('e',e)

@@ -24,6 +24,8 @@ Automatic Centrifuge Installer
 }
 show_ascii_berry
 
+sudo pip3 install rpi_ws281x adafruit-circuitpython-neopixel
+
 
 if [ -d "$HOME/AutomaticCentrifuge" ]
 then

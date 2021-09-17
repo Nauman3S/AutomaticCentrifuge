@@ -14,37 +14,13 @@ DIG1 = 26				# set dir1 pin on MD10-Hat
 START_BUTTON_GPIO = 27
 STOP_BUTTON_GPIO = 17
 IR_SENSOR_GPIO = 22
-LED_RED = 19
-LED_GREEN = 6
-LED_BLUE = 5
 servoPIN = 4
 
 p1=None
 p2=None
 p=None
 dcMotorRunning=0
-def ledState(v):
-    if(v=='red'):
-        GPIO.output(LED_RED,GPIO.HIGH) #LED will be switched ON
-        GPIO.output(LED_GREEN,GPIO.LOW) #LED will be switched OFF
-        GPIO.output(LED_BLUE,GPIO.LOW) #LED will be switched OFF
-    if(v=='white'):
-        GPIO.output(LED_RED,GPIO.HIGH) #LED will be switched ON
-        GPIO.output(LED_GREEN,GPIO.HIGH) #LED will be switched OFF
-        GPIO.output(LED_BLUE,GPIO.HIGH) #LED will be switched OFF
 
-    elif(v=='green'):
-        GPIO.output(LED_RED,GPIO.LOW) #LED will be switched OFF
-        GPIO.output(LED_GREEN,GPIO.HIGH) #LED will be switched ON
-        GPIO.output(LED_BLUE,GPIO.LOW) #LED will be switched OFF
-    elif(v=='blue'):
-        GPIO.output(LED_RED,GPIO.LOW) #LED will be switched OFF
-        GPIO.output(LED_GREEN,GPIO.LOW) #LED will be switched OFF
-        GPIO.output(LED_BLUE,GPIO.HIGH) 
-    elif(v=='off'):
-        GPIO.output(LED_RED,GPIO.LOW) #LED will be switched OFF
-        GPIO.output(LED_GREEN,GPIO.LOW) #LED will be switched OFF
-        GPIO.output(LED_BLUE,GPIO.LOW) 
 def SetServoAngle(angle):
     global p
 
@@ -105,9 +81,6 @@ GPIO.setup(STOP_BUTTON_GPIO, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.add_event_detect(STOP_BUTTON_GPIO, GPIO.BOTH, callback=stopTheMotors, bouncetime=100)
 GPIO.setup(IR_SENSOR_GPIO, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.add_event_detect(IR_SENSOR_GPIO, GPIO.BOTH, callback=startTheMotor, bouncetime=100)
-GPIO.setup(LED_RED, GPIO.OUT, initial= GPIO.LOW)
-GPIO.setup(LED_GREEN, GPIO.OUT, initial= GPIO.LOW)
-GPIO.setup(LED_BLUE, GPIO.OUT, initial= GPIO.LOW)
 p = GPIO.PWM(servoPIN, 50) # GPIO 4 for PWM with 50Hz
 p.start(0) # Initialization
 sleep(1)				# delay for 1 seconds
