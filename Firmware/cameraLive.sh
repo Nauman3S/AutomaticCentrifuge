@@ -1,3 +1,8 @@
+export DISPLAY=:0
+xset s off
+xset -dpms 
+xset s noblank
+
 (cvlc v4l2:///dev/video0:chroma=h264
                        :input-slave=alsa://hw:1,0
                        :live-caching=2500
@@ -19,6 +24,6 @@
 
  >/home/pi/AutomaticCentrifuge/Firmware/logs/liveCamLogs.txt 2>&1)&
 
-sleep 2
+sleep 10
 
-(chromium-browser --no-sandbox http://0.0.0.0:8099 >/home/pi/AutomaticCentrifuge/Firmware/logs/browserLogs.txt 2>&1)&
+(DISPLAY=:0 chromium-browser --no-sandbox http://0.0.0.0:8099 >/home/pi/AutomaticCentrifuge/Firmware/logs/browserLogs.txt 2>&1)&

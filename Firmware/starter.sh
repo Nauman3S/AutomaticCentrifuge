@@ -1,5 +1,5 @@
 #!/bin/bash
-sleep 8
+sleep 10
 #wait for network?
 # while ! ping -c 1 -W 1 8.8.8.8; do
 #     echo "Waiting for 8.8.8.8 - network interface might be down..."
