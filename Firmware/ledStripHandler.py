@@ -1,6 +1,7 @@
 import board
 import neopixel
-pixels = neopixel.NeoPixel(board.D16, 30)
+import time
+pixels = neopixel.NeoPixel(board.D21, 30,brightness=0.2)
 
 def ledState(v):
     global pixels
@@ -15,3 +16,6 @@ def ledState(v):
         pixels.fill((0, 0, 255))
     elif(v=='off'):
         pixels.fill((0, 0, 0))
+    pixels.show()
+
+

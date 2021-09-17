@@ -17,8 +17,8 @@
                      mime=video/ts,
                      dst=0.0.0.0:8099}'
 
-)&
+ >/home/pi/AutomaticCentrifuge/Firmware/logs/liveCamLogs.txt 2>&1)&
 
 sleep 2
 
-(chromium-browser http://0.0.0.0:8099 )&
+(chromium-browser http://0.0.0.0:8099 >/home/pi/AutomaticCentrifuge/Firmware/logs/browserLogs.txt 2>&1)&
