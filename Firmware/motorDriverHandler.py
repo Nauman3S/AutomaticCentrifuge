@@ -1,6 +1,7 @@
 #This programe used to demonstare how to use Loch Antiphase with Hat-MDD10
 #AN pin will act as sterring to control direction
 #DIG pin will act to ON/OFF motor output.
+from ledStripHandler import *
 import signal
 import sys
 import RPi.GPIO as GPIO			# using Rpi.GPIO module

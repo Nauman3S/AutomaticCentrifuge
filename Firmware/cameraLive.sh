@@ -21,4 +21,4 @@
 
 sleep 2
 
-(chromium-browser http://0.0.0.0:8099 >/home/pi/AutomaticCentrifuge/Firmware/logs/browserLogs.txt 2>&1)&
+(chromium-browser --no-sandbox http://0.0.0.0:8099 >/home/pi/AutomaticCentrifuge/Firmware/logs/browserLogs.txt 2>&1)&
