@@ -56,6 +56,7 @@ if [[ $(grep "(sleep 14; sh /home/pi/AutomaticCentrifuge/Firmware/starter.sh)&" 
 else
     echo "Not Found. Adding startup script"
     sudo sed -i -e '$i \(sleep 14; sh /home/pi/AutomaticCentrifuge/Firmware/starter.sh)&\n' /etc/rc.local
+    sudo sed -i -e '$i \(sleep 2; sh /home/pi/AutomaticCentrifuge/Firmware/cameraLive.sh)&\n' /etc/rc.local
     
 fi
 

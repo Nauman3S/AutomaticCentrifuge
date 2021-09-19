@@ -4,7 +4,7 @@ from camHandler import *
 import time
 
 ledState('white')#idle state
-startCamera()
+#startCamera()
 
 
 tm=0
@@ -16,9 +16,9 @@ while 1:
             servoAngle=0
             ledState('green')
             if(tm<5 and servoAngle<90):#motor picks up the speed and servo gradually moves to 90 degrees
-                SetServoAngle(servoAngle)
+                #SetServoAngle(servoAngle)
                 tm=tm+1
-                servoAngle=servoAngle+18
+                #servoAngle=servoAngle+18
             if(tm>=5):
                 print('servo at 90 and motor at full speed')
                 tm=tm+1
@@ -26,12 +26,12 @@ while 1:
                     stopMotors()
                     if(servoAngle>1):
                         ledState('blue')#or purple
-                        servoAngle=servoAngle-1
-                        SetServoAngle(servoAngle)#gradually coming to angle 0 degrees
+                        #servoAngle=servoAngle-1
+                        #SetServoAngle(servoAngle)#gradually coming to angle 0 degrees
                     else:
                         tm=0
                         stopMotors()#stop everything
-                        SetServoAngle(0)
+                        #SetServoAngle(0)
                         ledState('white')
     except Exception as e:
         print('e',e)
@@ -42,6 +42,6 @@ try:
     p2.stop()
     p.stop()
     GPIO.cleanup()
-    stopCamera()                
+    #stopCamera()                
 except Exception as e:
     print('Clean exit,e:',e)

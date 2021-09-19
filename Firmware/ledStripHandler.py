@@ -1,7 +1,7 @@
 import board
 import neopixel
 import time
-pixels = neopixel.NeoPixel(board.D21, 30,brightness=0.2)
+pixels = neopixel.NeoPixel(board.D21, 60,brightness=1, pixel_order=neopixel.RGBW)
 
 def ledState(v):
     global pixels

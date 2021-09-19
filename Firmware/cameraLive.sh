@@ -1,3 +1,4 @@
+sleep 18
 export DISPLAY=:0
 xset s off
 xset -dpms 
@@ -26,4 +27,4 @@ xset s noblank
 
 sleep 10
 
-(DISPLAY=:0 sudo -u pi chromium-browser http://0.0.0.0:8099 >/home/pi/AutomaticCentrifuge/Firmware/logs/browserLogs.txt 2>&1 )&
+(DISPLAY=:0 sudo -u pi chromium-browser http://localhost:8099 >/home/pi/AutomaticCentrifuge/Firmware/logs/browserLogs.txt 2>&1 )&
