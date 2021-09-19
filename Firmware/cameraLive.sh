@@ -28,5 +28,5 @@ sleep 10
 sleep 10
 
 #(DISPLAY=:0 sudo -u pi chromium-browser http://localhost:8099 >/home/pi/AutomaticCentrifuge/Firmware/logs/browserLogs.txt 2>&1 )&
-(chromium-browser http://localhost:8099 >/home/pi/AutomaticCentrifuge/Firmware/logs/browserLogs.txt 2>&1 )&
+(chromium-browser --no-sandbox http://localhost:8099 >/home/pi/AutomaticCentrifuge/Firmware/logs/browserLogs.txt 2>&1 )&
 
