@@ -1,8 +1,8 @@
-sleep 18
-export DISPLAY=:0
-xset s off
-xset -dpms 
-xset s noblank
+sleep 10
+# export DISPLAY=:0
+# xset s off
+# xset -dpms 
+# xset s noblank
 
 (cvlc v4l2:///dev/video0:chroma=h264
                        :input-slave=alsa://hw:1,0
@@ -27,5 +27,6 @@ xset s noblank
 
 sleep 10
 
-(DISPLAY=:0 sudo -u pi chromium-browser http://localhost:8099 >/home/pi/AutomaticCentrifuge/Firmware/logs/browserLogs.txt 2>&1 )&
+#(DISPLAY=:0 sudo -u pi chromium-browser http://localhost:8099 >/home/pi/AutomaticCentrifuge/Firmware/logs/browserLogs.txt 2>&1 )&
+(chromium-browser http://localhost:8099 >/home/pi/AutomaticCentrifuge/Firmware/logs/browserLogs.txt 2>&1 )&
 
